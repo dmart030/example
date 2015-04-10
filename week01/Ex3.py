@@ -44,8 +44,8 @@ for w in range(11):
 t = [round(n,2) for n in t]
 
 plt.plot(v,t,'-o')
-plt.xlabel('Velocity')
-plt.ylabel('Time')
+plt.xlabel('Velocity[m/s]')
+plt.ylabel('Time[s]')
 print("Velocity list")
 print(v)
 print("time list")
