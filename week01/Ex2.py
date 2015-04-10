@@ -37,6 +37,7 @@ while i < 8:
     i += 1
 w = round(g/8.,2)
 print"The number of failed students are: ",j, "\n"
+failed_grades = [round(n,2) for n in failed_grades]
 print"The grades of the failed students are:", failed_grades, "\n"
 
 print"The number of outstanding students are: ", g, "\n"
