@@ -16,26 +16,29 @@ z = Final_project= [9,10,10,6,10,6,8,9]
 final_grade = [0,0,0,0,0,0,0,0]
 
 i = 0
-
+failed_grades = []
 while i < 8:
-    final_grade[i] = 100 * (x[i]/10. + y[i]/10. + z[i]/10.)/3.0
+    final_grade[i] =(x[i]*0.4 + y[i]*0.2 + z[i]*0.4)
+    if final_grade[i] < 6.5:
+        failed_grades.append(final_grade[i])
     i += 1
 print("Final Grades are:")
 
 for n in final_grade:
-    print round(n,2),'%'
+    print round(n,2)
 j = 0
 i = 0
 g = 0
 while i < 8:
-    if final_grade[i] < 60.0:
+    if final_grade[i] < 6.0:
         j += 1
-    if final_grade[i] > 95.5:
+    if final_grade[i] > 9.5:
         g += 1
     i += 1
-w = round(g /10.,2)
+w = round(g/8.,2)
 print"The number of failed students are: ",j, "\n"
-print"The grades of the failed students are: F\n"
+print"The grades of the failed students are:", failed_grades, "\n"
+
 print"The number of outstanding students are: ", g, "\n"
 print"The fraction of outstanding students is: ",w , "%", "\n"
 print"The histogram of the grades is: "
@@ -45,7 +48,7 @@ plt.hist(final_grade,bins = 8)
 plt.title("histogragh of grades is: ")
 plt.xlabel("grades")
 plt.ylabel("Frequency")
-plt.xlim([40,100])
+plt.xlim(0,10)
 plt.show()
 plt.savefig('Histograph.png')
 
