@@ -48,10 +48,7 @@ o:
 plt.plot(v,t,'-o')
 plt.xlabel('Velocity[m/s]')
 plt.ylabel('Time[s]')
-print("Velocity list")
-print(v)
-print("time list")
-print(t)
+
 t1 = np.array(t)
 np.savetxt('file.dat',t1)
 
