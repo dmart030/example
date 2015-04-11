@@ -40,7 +40,9 @@ for i in range(11):
 for w in range(11):
     t.append((((-1)*(v[w]))+((v[w]**2 + (4*G*H))**0.5))/(2*9.81))
     round(t[w],2)
-    
+'''
+o:
+'''
 
 
 plt.plot(v,t,'-o')
