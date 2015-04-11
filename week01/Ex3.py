@@ -41,7 +41,7 @@ for w in range(11):
     t.append((((-1)*(v[w]))+((v[w]**2 + (4*G*H))**0.5))/(2*9.81))
     round(t[w],2)
     
-t = [round(n,2) for n in t]
+
 
 plt.plot(v,t,'-o')
 plt.xlabel('Velocity[m/s]')
@@ -52,3 +52,9 @@ print("time list")
 print(t)
 t1 = np.array(t)
 np.savetxt('file.dat',t1)
+
+t = [round(n,2) for n in t]
+print("Velocity list")
+print(v)
+print("time list")
+print(t)
