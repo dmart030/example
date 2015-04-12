@@ -38,7 +38,7 @@ w = 0
 for i in range(11):
     v.append((i * dV) + Vmin)
 for w in range(11):
-    t.append((((-1)*(v[w]))+((v[w]**2 + (4*G*H))**0.5))/(2*9.81))
+    t.append((((-1)*(v[w]))+((v[w]**2 + (4*G*H))**0.5))/(2*G))
     round(t[w],2)
 '''
 o:
