@@ -49,7 +49,7 @@ print("The Trapezoidal area is: ")
 h = (bound_b-bound_a)
 s = 0
 sum1 = []
-
+'''
 for s in range(x_max):
     if s == 0:
         sum1.append(0.5*a_coef[s])
@@ -65,3 +65,6 @@ print("Simpson's rule is: ")
 h1 = h/N
 m = bound_a*0.5 + bound_b*0.5
 print(h1*(s + m + a_coef[0] + a_coef[x_max]*(bound_b**x_pow_vect[x_max])))
+'''
+def f(x):
+    return sum(c_coef[]*x[]**x_pow_vect[])
