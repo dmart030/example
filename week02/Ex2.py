@@ -19,3 +19,24 @@ Created on Thu Apr 16 02:22:55 2015
 curve and the distance curve, in two separate panels of the same figure.
  Hint: Use plt.subplot(2, 1, j), where j = 1 or 2 for upper/lower panels.
 '''
+import numpy as np
+import matplotlib.pyplot as plt
+DataIN = np.loadtxt('Velocities.txt.txt')
+y = []
+v = []
+for column in DataIN:
+    v.append(column[0])
+    y.append(column[1])
+print('\n')
+t = [round(n,6) for n in y]
+plt.plot(v,t)
+plt.xlabel('Time')
+plt.ylabel('Velocity')
+N = input("How many N's? ")
+a = 0
+def f(x):
+    
+def trap(v,t):
+    
+
+
