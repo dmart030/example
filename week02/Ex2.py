@@ -21,22 +21,19 @@ curve and the distance curve, in two separate panels of the same figure.
 '''
 import numpy as np
 import matplotlib.pyplot as plt
+import math
 DataIN = np.loadtxt('Velocities.txt.txt')
 y = []
 v = []
 for column in DataIN:
     v.append(column[0])
     y.append(column[1])
+print(v)
 print('\n')
 t = [round(n,6) for n in y]
+print(t)
 plt.plot(v,t)
 plt.xlabel('Time')
 plt.ylabel('Velocity')
-N = input("How many N's? ")
-a = 0
-def f(x):
-    
-def trap(v,t):
-    
-
-
+h = abs(v)
+print(h)
