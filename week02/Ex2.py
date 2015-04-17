@@ -21,32 +21,43 @@ curve and the distance curve, in two separate panels of the same figure.
 '''
 import numpy as np
 import matplotlib.pyplot as plt
+
 DataIN = np.loadtxt('Velocities.txt.txt')
 y = []
 v = []
 for column in DataIN:
-    v.append(column[0])
-    y.append(column[1])
+    v.append(column[1])
+    y.append(column[0])
 print('\n')
 t = [round(n,6) for n in y]
+x = 0
+plt.plot(t,v)
+plt.ylabel('Time[s]')
+plt.xlabel('Velocity[m/s]')
 
-plt.plot(v,t)
-plt.xlabel('Time')
-plt.ylabel('Velocity')
+xfinal = np.trapz(v,x=t)
+print 'final position= ',xfinal
 
-def trap(v):
-    N = len(v)
-    dx = v[1]-v[0]
-    x_sum = (v[0]+v[N-1])*0.5
-    i = 0
-    
-    while i in range(1,N-1):
-        x_sum += v[i]
-    return x_sum*dx
-    
-def simps(v):
-    N = len(v)
-    dx = (100)/6
-    
+N = len(t)
+pos = np.zeros(N)
+dist = np.zeros(N)
 
-print( "Trapezoidal approximation & position coordinates",trap(x))
+pos[0] = 0.
+dist[0] = 0.
+for i in range(1,N):
+	x1 = np.trapz(v[0:i], x=t[0:i])
+	x2 = np.trapz(np.abs(v[0:i]), x=t[0:i])
+	pos[i] = x1
+	dist[i] = x2
+
+ax1 = plt.subplot(3,1,1)
+plt.plot(t,v)
+plt.ylabel('V [m/s]')
+ax2 = plt.subplot(3,1,2)
+plt.plot(t,pos)
+plt.ylabel('Pos [m]')
+ax2 = plt.subplot(3,1,3)
+plt.plot(t,dist)
+plt.ylabel('Distance [m]')
+plt.xlabel('time [s]')
+
