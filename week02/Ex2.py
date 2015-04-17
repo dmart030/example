@@ -21,19 +21,32 @@ curve and the distance curve, in two separate panels of the same figure.
 '''
 import numpy as np
 import matplotlib.pyplot as plt
-import math
 DataIN = np.loadtxt('Velocities.txt.txt')
 y = []
 v = []
 for column in DataIN:
     v.append(column[0])
     y.append(column[1])
-print(v)
 print('\n')
 t = [round(n,6) for n in y]
-print(t)
+
 plt.plot(v,t)
 plt.xlabel('Time')
 plt.ylabel('Velocity')
-h = abs(v)
-print(h)
+
+def trap(v):
+    N = len(v)
+    dx = v[1]-v[0]
+    x_sum = (v[0]+v[N-1])*0.5
+    i = 0
+    
+    while i in range(1,N-1):
+        x_sum += v[i]
+    return x_sum*dx
+    
+def simps(v):
+    N = len(v)
+    dx = (100)/6
+    
+
+print( "Trapezoidal approximation & position coordinates",trap(x))
