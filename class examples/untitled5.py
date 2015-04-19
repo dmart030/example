@@ -8,7 +8,7 @@ Created on Sat Apr 11 22:40:32 2015
 def f(x):
     return x**4 - 2*x + 1
 
-N = 10
+N = 20
 a = 0.0
 b = 2.0
 h = (b-a)/N
