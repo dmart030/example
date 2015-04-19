@@ -19,7 +19,7 @@ result as a constant).
 '''
 import numpy as np
 import scipy as sc
-import decimal
+
 def f(x):
     return x**4 - 2*x + 1
     
@@ -82,10 +82,12 @@ y = np.array(y)
 f = np.trapz(y, x=None, dx=0.1)
 c = 4.4
 print("using numpy/scipy functions built into python.(That was what you were asking for right?)\n")
-print "trapezoidal approximation: ",f, "The error is: ", f - c
+print "trapezoidal approximation: ",f, "The error is: ", round(f - c,5)
 print "The error of each trapezoid is  ~", (f - c )/(21*3)
 g = sc.integrate.simps(y,x=None,dx=0.1)
-print "Simpson approximation: ", g, "The error is: ", g - c
+print "\n"
+print "Simpson approximation: ", g, "The error is: ", round(g - c,5)
+print "\n"
 print "The actual integral of the problem is is 4.4"
 l = []
 L = []
