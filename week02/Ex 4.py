@@ -17,8 +17,9 @@ and its estimate of the error on the integral, for each value of the number
  '''
 import math as m
 import numpy as np
+import scipy as scy
 def f(x):
-     return m.sin(2)*m.sqrt(100*x)
+     return m.sin(((100*x))**0.5)
 
 a = 0.
 b = 1.
@@ -26,18 +27,67 @@ N = range(input("Number of steps that you want: ") + 1)
 x = 0.
 l = []
 N.pop(0)
-print "The nsteps are numbered:", N, '\n'
+print "The steps are numbered:", N, '\n'
 def h(N):
     for r in range(0, len(N)):
-        l.append(round((b - a) / N[r],5))
+        l.append((b - a) / N[r])
     return l
 l = h(N)
 i = []
 I = 0.
-def I(I):
-    for i in range(len(N)):
-        I = I + l[i]*(0.5*f(a)+0.5*f(b))
-    return I
-print I(I)
- 
- 
+print l
+x = 0
+y = f(x)
+np.array(l)
+s = (0.5*f(a) + 0.5*f(b))
+for k in range(1,len(l)-1, 2):
+    s += f(a + k*l[k])
+for i in range(0,len(l)/2):
+    print s * l[i]*2
+for i in range(0,len(l) - 1):
+    print "error of each trapezoid", (1./3)*(s*(l[i+1]-l[i]))*-1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+'''
+
+#Calculate the first approximation I1 to the integral using the chosen
+#value N1 with the standard trapezoidal rule formula (Eq. 5.3).
+I1 = (0.5*f(a) + 0.5*f(b))*h
+
+#Display Results
+print "Slices: ", N1, "   Integral:", I1,"   Error: ", error
+
+Ii = I1
+Ni = 2*N1
+I = 0.5*Ii
+error = 1
+
+#Double the number of steps and use Eq. 5.34 to calculate an improved 
+#estimate of the integral. Also calculate the error on that estimate 
+#from Eq. 5.30. If the absolute magnitude of the error is less than the
+#target accuracy for the integral, stop. Otherwise repeat above.
+
+while( error > 10**(-6) ):
+    hi = (b-a)/Ni
+    
+    for n in range(1,Ni-1,2):
+        I += (f(n*hi))*hi
+        
+    error = (1/3.)*(abs(I-Ii))
+    print "Slices: ", Ni, "   Integral:", I,"   Error: ", error
+    Ii = I
+    I = 0.5*I
+    Ni = 2*Ni
+'''
