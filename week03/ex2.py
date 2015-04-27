@@ -80,7 +80,7 @@ if __name__ == '__main__':
     x = gauss(A, b)
     print('Gauss result is x = \n %s' % x)
     
-
+print np.linalg.solve(A,b), "Solved by typing in np.linalg.solve"
 
 
 
