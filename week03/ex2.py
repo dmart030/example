@@ -23,5 +23,4 @@ def myGauss(m):
                     ans.append((m[sol][-1]-inner)/m[sol][-sol-2])
     ans.reverse()
     return ans
-print myGauss([[-5.,-1.,-1.,-1.,-4.],[4.,-5.,-1.,-1.,-1.],[4,-1.,-5.,-1.,-1.],
-               [4.,-1.,-1.,-5.,1.]])
+print myGauss([[4.,-1,-1.,-1,5.]])
