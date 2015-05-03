@@ -9,30 +9,41 @@ from sympy import *
 
 print " Dominc Martinez-Ta, physics 177"
 print "a) "
-x = np.linspace(0,1,10000)
+x = np.linspace(0,1,1000)
 x_prime = []
 slope =  []
 def f(x):
     return 924*x**6 - 2772*x**5 + 3150*x**4 - 1680*x**3 + 420*x**2 - 42*x + 1
-for i in range(0,len(x)):
-    slope.append(f(x[i])/(x[1]-x[0]))
-    x_prime.append(f(x[i])-slope[i])
+def f_prime(x):
+    return 924*6*x**5 - 2772*5*x**4 + 3150*4*x**3 - 1680*3*x**2 + 420*2*x - 42
+
 p = f(x)
 
 x = np.array(x)
 y = np.array(p)
-slope = np.array(slope)
-x_prime = np.array(x_prime)
+
 
 print "     The rough values for the six roots (just be looking at it) appear to be"
 print " x = 0.09, 0.25, 0.5, 0.76, 0.97"
 
 print "b) "
 
-for i in range(0,(len(x_prime)-1)):
-    if x_prime[i] == 0:
-        print x[i], " \n"
+slope = f_prime(x)
+slope1 = np.around(slope, decimals = 1)
+f = np.around(x,decimals = 3)
+for i in range(len(x)):
+    if slope1[i] == 0:
+        if f[i+1] != f[i]:
+            print f[i], "Actual 0, x coordinate calculated from slope."
+print "If there are 2 points very close to eachother. It just meant that the slope was somewhat flat."
+print "Meaning, the 0 root is inbetween the two values."
+x_i = x[:]-slope[:]
+print x_i
+
 plt.plot(x,y)
+'''
+plt.savefig('barack_the_rock_obama.png')
+'''
 
 
 '''
