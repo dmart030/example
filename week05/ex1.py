@@ -24,7 +24,7 @@ y = np.array(p)
 
 
 print "     The rough values for the six roots (just be looking at it) appear to be"
-print " x = 0.09, 0.25, 0.5, 0.76, 0.97"
+print " x = 0.09, 0.25, 0.5, 0.73, 0.97"
 
 print "b) "
 
@@ -35,10 +35,12 @@ for i in range(len(x)):
     if slope1[i] == 0:
         if f[i+1] != f[i]:
             print f[i], "Actual 0, x coordinate calculated from slope."
+
 print "If there are 2 points very close to eachother. It just meant that the slope was somewhat flat."
 print "Meaning, the 0 root is inbetween the two values."
+
 x_i = x[:]-slope[:]
-print x_i
+
 
 plt.plot(x,y)
 '''
