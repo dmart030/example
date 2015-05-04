@@ -9,13 +9,13 @@ from sympy import *
 
 print " Dominc Martinez-Ta, physics 177"
 print "a) "
-x = np.linspace(0,1,1000)
+x = np.linspace(0,1.,1000)
 x_prime = []
 slope =  []
 def f(x):
     return 924*x**6 - 2772*x**5 + 3150*x**4 - 1680*x**3 + 420*x**2 - 42*x + 1
 def f_prime(x):
-    return 924*6*x**5 - 2772*5*x**4 + 3150*4*x**3 - 1680*3*x**2 + 420*2*x - 42
+    return (924*6)*x**5 - (2772*5)*x**4 + (3150*4)*x**3 - (1680*3)*x**2 + (420*2)*x - 42
 
 p = f(x)
 
@@ -24,7 +24,7 @@ y = np.array(p)
 
 
 print "     The rough values for the six roots (just be looking at it) appear to be"
-print " x = 0.09, 0.25, 0.5, 0.73, 0.97"
+print " x = 0.09, 0.25, 0.5, 0.73, 0.93"
 
 print "b) "
 
@@ -39,13 +39,18 @@ for i in range(len(x)):
 print "If there are 2 points very close to eachother. It just meant that the slope was somewhat flat."
 print "Meaning, the 0 root is inbetween the two values."
 
+#newton's Methond
 x_i = x[:]-slope[:]
-
-
+x_i = np.round(x_i, decimals = 1)
+for i in range(len(x_i)):
+    if x_i[i] == 0:
+        print x[i], "approximated roots from newton's method."
 plt.plot(x,y)
-'''
+plt.xlabel("x, axis")
+plt.ylabel("y, axis")
+plt.title("Graph of the polynomial")
 plt.savefig('barack_the_rock_obama.png')
-'''
+
 
 
 '''
