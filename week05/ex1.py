@@ -24,7 +24,7 @@ y = np.array(p)
 
 
 print "     The rough values for the six roots (just be looking at it) appear to be"
-print " x = 0.03, 0.2, 0.39, 0.61, 0.89, 9.4"
+print " x = 0.03, 0.2, 0.39, 0.61, 0.89,0.94"
 x_approx = [0.03, 0.2, 0.39, 0.61, 0.89, 0.94]
 x_approx = np.array(x_approx)
 print "b) "
@@ -33,15 +33,10 @@ print "b) "
 
 i = 0 
 for j in range(6):
-    for i in range(6):
+    for i in range(10):
         b = x_approx[j]
         x_approx[j] = b - f(b)/f_prime(b)
 
-
-
-slope = f_prime(x_approx)
-z = [0 for i in range(len(x))]
-z = np.array(z)
 print x_approx, "approximated roots."
         
 plt.plot(x,y,'-')
