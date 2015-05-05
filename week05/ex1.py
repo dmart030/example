@@ -40,11 +40,12 @@ for j in range(6):
 
 
 slope = f_prime(x_approx)
-
+z = [0 for i in range(len(x))]
+z = np.array(z)
 print x_approx
         
 plt.plot(x,y,'-')
-plt.plot(x,z,'g')
+plt.plot(x,z,'black')
 plt.xlabel("x, axis")
 plt.ylabel("y, axis")
 plt.title("Graph of the polynomial")
