@@ -5,7 +5,6 @@ Created on Fri May 01 12:51:40 2015
 """
 import numpy as np
 import matplotlib.pyplot as plt
-import scipy as sci
 
 print " Dominc Martinez-Ta, physics 177"
 print "a) "
@@ -37,6 +36,11 @@ for j in range(6):
         b = x_approx[j]
         x_approx[j] = b - f(b)/f_prime(b)
 
+
+
+slope = f_prime(x_approx)
+z = [0 for i in range(len(x))]
+z = np.array(z)
 print x_approx, "approximated roots."
         
 plt.plot(x,y,'-')
