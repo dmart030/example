@@ -5,7 +5,7 @@ Created on Fri May 01 12:51:40 2015
 """
 import numpy as np
 import matplotlib.pyplot as plt
-from sympy import *
+import scipy as sci
 
 print " Dominc Martinez-Ta, physics 177"
 print "a) "
@@ -24,28 +24,27 @@ y = np.array(p)
 
 
 print "     The rough values for the six roots (just be looking at it) appear to be"
-print " x = 0.09, 0.25, 0.5, 0.73, 0.93"
-
+print " x = 0.03, 0.2, 0.39, 0.61, 0.89, 9.4"
+x_approx = [0.03, 0.2, 0.39, 0.61, 0.89, 0.94]
+x_approx = np.array(x_approx)
 print "b) "
 
-slope = f_prime(x)
-slope1 = np.around(slope, decimals = 1)
-f = np.around(x,decimals = 3)
-for i in range(len(x)):
-    if slope1[i] == 0:
-        if f[i+1] != f[i]:
-            print f[i], "Actual 0, x coordinate calculated from slope."
 
-print "If there are 2 points very close to eachother. It just meant that the slope was somewhat flat."
-print "Meaning, the 0 root is inbetween the two values."
 
-#newton's Methond
-x_i = x[:]-slope[:]
-x_i = np.round(x_i, decimals = 1)
-for i in range(len(x_i)):
-    if x_i[i] == 0:
-        print x[i], "approximated roots from newton's method."
-plt.plot(x,y)
+i = 0 
+for j in range(6):
+    for i in range(6):
+        b = x_approx[j]
+        x_approx[j] = b - f(b)/f_prime(b)
+
+
+
+slope = f_prime(x_approx)
+
+print x_approx
+        
+plt.plot(x,y,'-')
+plt.plot(x,z,'g')
 plt.xlabel("x, axis")
 plt.ylabel("y, axis")
 plt.title("Graph of the polynomial")
