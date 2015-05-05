@@ -42,7 +42,7 @@ for j in range(6):
 slope = f_prime(x_approx)
 z = [0 for i in range(len(x))]
 z = np.array(z)
-print x_approx
+print x_approx, "approximated roots."
         
 plt.plot(x,y,'-')
 plt.plot(x,z,'black')
