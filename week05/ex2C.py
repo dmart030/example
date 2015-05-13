@@ -25,6 +25,6 @@ x = np.linspace(0.,1.,1000)
 y = [0 for i in range(len(x))]
 for i in range(len(x)):
     y[i] = sin(pi*x[i])* sin(20*pi*x[i])
-y -= (np.sum(x)/float(len(x)))    #option to remove frequency "0" contribution
+y -= (np.sum(y)/float(len(x)))    #option to remove frequency "0" contribution
 coeff = dft(y)
 plt.plot(np.arange(len(coeff)),np.abs(coeff)**2,linewidth=3)

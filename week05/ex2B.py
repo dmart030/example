@@ -21,6 +21,6 @@ def dft(y):
 
 x = np.linspace(0.,1.,1000)
 y = signal.sawtooth(2 * np.pi * 5 * x)
-y -= (np.sum(x)/float(len(x)))    #option to remove frequency "0" contribution
+y -= (np.sum(y)/float(len(x)))    #option to remove frequency "0" contribution
 coeff = dft(y)
 plt.plot(np.arange(len(coeff)),np.abs(coeff)**2,linewidth=3)

@@ -26,24 +26,16 @@ def dft(y):
     return c
 
 
-x = np.linspace(0.,25,1000)
+x = np.linspace(0.,6,1000)
 #y = np.ones(len(x))    #example for a function y(x) = constant
 y = signal.square(x)
+
 #y = x                   #example for a function y(x) = x
-#y -= (np.sum(x)/float(len(x)))  
-''' 
-#option to remove frequency "0" contribution
-plt.plot(x,y)
-plt.xlim(0,25)
-plt.ylim(-10,10)
-plt.show()
-'''
+y -= (np.sum(y)/float(len(x)))  
 
 coeff = dft(y)
 plt.plot(np.arange(len(coeff)),np.abs(coeff)**2,linewidth=3)
 plt.title('A) A single cycle of a square wave with amplitude 1')
-
-
 
 
 
