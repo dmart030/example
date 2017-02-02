@@ -34,13 +34,13 @@ while(next < 1000):
 	f1 = f2
 	f2 = next
 	next = f1 + f2 
-	print next
+	print(next)
 
 	n += 1   #add step
 	keep_val.append(next)
 
-print 'done'
-print 'number of steps= ',n
+print('done')
+print('number of steps= ',n)
 
 #you can convert the list to a numpy-array if wanted (not needed for this excercise)
 keep_val_array = np.array(keep_val).astype('int32')
@@ -53,3 +53,4 @@ x[:] += 1     #now x goes from 1 to n
 plt.plot(x,keep_val,'o-',color='red',linewidth=3,markersize=7)  # "o" refers to the symbol type (in this case circle) and "-" for solid line
 ax.set_xlabel('step number')
 ax.set_ylabel('Fibonacci number')
+plt.show()
